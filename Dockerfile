@@ -1,5 +1,9 @@
 FROM python:3.13-slim
 
+LABEL org.opencontainers.image.source="https://github.com/zhargan-byte/dockerized-flask-app"
+LABEL org.opencontainers.image.description="A production-minded Flask portfolio application with Gunicorn and container security practices"
+LABEL org.opencontainers.image.licenses="MIT"
+
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PORT=5000

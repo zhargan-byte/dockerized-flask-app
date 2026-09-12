@@ -3,6 +3,8 @@
 [![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![GitHub Release](https://img.shields.io/github/v/release/zhargan-byte/dockerized-flask-app?logo=github)](https://github.com/zhargan-byte/dockerized-flask-app/releases/latest)
+[![GitHub Container Registry](https://img.shields.io/badge/GHCR-Package-2496ED?logo=docker&logoColor=white)](https://github.com/zhargan-byte/dockerized-flask-app/pkgs/container/dockerized-flask-app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A beginner-friendly, production-minded Flask portfolio project packaged as a portable Docker image. It combines clean Python routing, Jinja templates, a responsive interface, a JSON health endpoint, automated tests, Gunicorn, and container security practices in a codebase that is intentionally easy to inspect.
@@ -140,6 +142,17 @@ Open [http://localhost:5000](http://localhost:5000). Stop the server with `Ctrl+
 > Flask's built-in server is convenient for local development. The Docker image uses Gunicorn for a production-style runtime.
 
 ## Option 2: build and run with Docker
+
+### Use the published image
+
+The versioned image is available from the [GitHub Container Registry package](https://github.com/zhargan-byte/dockerized-flask-app/pkgs/container/dockerized-flask-app):
+
+```bash
+docker pull ghcr.io/zhargan-byte/dockerized-flask-app:v1.0.0
+docker run -d -p 5000:5000 --name flask-app ghcr.io/zhargan-byte/dockerized-flask-app:v1.0.0
+```
+
+The remaining steps explain how to build the same image directly from the source code.
 
 ### 1. Start Docker
 
@@ -355,7 +368,7 @@ A clear public history could use these focused commits:
 - Add Docker Compose for application and database services
 - Add Nginx as a reverse proxy and TLS termination layer
 - Add GitHub Actions for tests, linting, and image builds
-- Publish versioned images to GitHub Container Registry
+- Add signed image provenance and an automated vulnerability scan
 - Deploy to a managed container platform with autoscaling
 - Add OpenTelemetry tracing and Prometheus metrics
 
