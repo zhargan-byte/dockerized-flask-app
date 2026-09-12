@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A production-minded Flask application packaged with Docker and Gunicorn.">
+    <meta name="theme-color" content="#f7f9fc">
+    <title>{% block title %}Dockerized Flask{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <nav class="nav container" aria-label="Primary navigation">
+            <a class="brand" href="{{ url_for('home') }}" aria-label="Dockerized Flask home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><path d="M7 5h7l4 6-4 6H7l-4-6 4-6Zm11 10h7l4 6-4 6h-7l-4-6 4-6Z"/></svg>
+                </span>
+                <span>Dockerized <strong>Flask</strong></span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+                <span class="sr-only">Toggle navigation</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+
+            <div class="nav-links" id="nav-links">
+                <a href="{{ url_for('home') }}" {% if active_page == 'home' %}aria-current="page"{% endif %}>Home</a>
+                <a href="{{ url_for('about') }}" {% if active_page == 'about' %}aria-current="page"{% endif %}>About</a>
+                <a class="status-pill" href="{{ url_for('health') }}" data-health-status>
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span data-health-label>Checking service</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <a class="brand footer-brand" href="{{ url_for('home') }}">Dockerized <strong>Flask</strong></a>
+                <p>One small container. Production-minded foundations.</p>
+            </div>
+            <div class="footer-meta">
+                <span>Flask</span><span aria-hidden="true">/</span><span>Gunicorn</span><span aria-hidden="true">/</span><span>Docker</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

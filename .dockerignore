@@ -1,0 +1,15 @@
+.git
+.github
+.venv
+__pycache__
+*.py[cod]
+*.log
+.env
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+tests
+screenshots
+README.md
+LICENSE

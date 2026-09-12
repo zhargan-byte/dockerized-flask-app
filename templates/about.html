@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}About | Dockerized Flask{% endblock %}
+{% block content %}
+<section class="page-hero container reveal"><p class="eyebrow"><span></span> About the project</p><h1>Designed to make container fundamentals easy to see.</h1><p>This application connects a concise Python backend, an accessible frontend, and a repeatable Docker runtime without hiding the important ideas behind unnecessary complexity.</p></section>
+<section class="section container about-grid">
+    <article class="content-card reveal"><span class="feature-number">01</span><h2>Application layer</h2><p>Flask maps URLs to Python functions, renders Jinja templates, serves static assets, and returns JSON for automated health monitoring.</p><code>create_app() → route → response</code></article>
+    <article class="content-card reveal"><span class="feature-number">02</span><h2>Runtime layer</h2><p>Gunicorn runs multiple worker processes and provides a production WSGI server in place of Flask's development-only server.</p><code>gunicorn app:app</code></article>
+    <article class="content-card reveal"><span class="feature-number">03</span><h2>Container layer</h2><p>Docker packages the exact Python runtime, dependencies, application code, and startup command into one portable image.</p><code>docker build -t flask-app .</code></article>
+</section>
+<section class="section container"><div class="principles-panel reveal"><div><p class="eyebrow"><span></span> Engineering principles</p><h2>Simple, observable, and portable.</h2></div><ul class="check-list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> App factory supports isolated testing</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> JSON health endpoint enables monitoring</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Non-root runtime reduces container risk</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Responsive UI works across screen sizes</li></ul></div></section>
+{% endblock %}

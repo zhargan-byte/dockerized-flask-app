@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Page not found | Dockerized Flask{% endblock %}
+{% block content %}
+<section class="error-page container"><div class="error-code" aria-hidden="true">404</div><p class="eyebrow"><span></span> Route not found</p><h1>This container has no page at that address.</h1><p>The application is healthy—the requested route simply does not exist.</p><a class="button button-primary" href="{{ url_for('home') }}">Return home <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></section>
+{% endblock %}

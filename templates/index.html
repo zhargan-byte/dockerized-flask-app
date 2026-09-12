@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Dockerized Flask Web Application{% endblock %}
+
+{% block content %}
+<section class="hero container">
+    <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Flask · Docker · Gunicorn</p>
+        <h1>A clean path from Python code to a <em>production-ready container.</em></h1>
+        <p class="hero-lead">A focused portfolio project that demonstrates Flask fundamentals, reliable containerization, responsive interface design, and practical production conventions.</p>
+        <div class="hero-actions">
+            <a class="button button-primary" href="#architecture">Explore the architecture <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+            <a class="button button-secondary" href="{{ url_for('health') }}">View health response</a>
+        </div>
+        <dl class="hero-stats" aria-label="Project highlights">
+            <div><dt>3</dt><dd>Application routes</dd></div>
+            <div><dt>2</dt><dd>Gunicorn workers</dd></div>
+            <div><dt>1</dt><dd>Portable image</dd></div>
+        </dl>
+    </div>
+
+    <div class="hero-visual reveal" aria-label="Container runtime illustration">
+        <div class="runtime-card" data-tilt>
+            <div class="window-bar">
+                <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span>container.runtime</span>
+                <span class="live-label"><i></i> Live</span>
+            </div>
+            <div class="runtime-body">
+                <div class="runtime-heading">
+                    <span class="docker-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 24h7v-7H8v7Zm9 0h7v-7h-7v7Zm9 0h7v-7h-7v7Zm-9-9h7V8h-7v7Zm9 0h7V8h-7v7Zm9 9h5.6c1.1 0 2-.9 2-2 0-.7-.4-1.4-1-1.7 1.7-1.2 3.4-.6 4.4.2-.4 2.6-2.2 4.7-5.3 5.5-.8 7.8-7.2 13-16.7 13C14.2 39 7.8 34.7 5 26h30v-2Z"/></svg></span>
+                    <div><p>Docker image</p><strong>flask-app:latest</strong></div>
+                    <span class="verified" aria-label="Verified"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 12 3 3 7-7"/></svg></span>
+                </div>
+                <div class="stack-flow">
+                    <div class="stack-node"><span class="node-icon flask-symbol" aria-hidden="true">F</span><div><strong>Flask</strong><small>Application routes</small></div><code>:5000</code></div>
+                    <span class="flow-line" aria-hidden="true"></span>
+                    <div class="stack-node"><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 18h14M7 15V9m5 6V5m5 10v-3"/></svg></span><div><strong>Gunicorn</strong><small>WSGI server</small></div><code>2 workers</code></div>
+                    <span class="flow-line" aria-hidden="true"></span>
+                    <div class="stack-node"><span class="node-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM8 17v3m8-3v3M8 11h.01M12 11h4"/></svg></span><div><strong>Container</strong><small>Non-root process</small></div><code>healthy</code></div>
+                </div>
+                <div class="terminal-line" aria-label="Example command"><span>$</span><code>docker run -p 5000:5000 flask-app</code><i aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div class="orbit-badge orbit-one" aria-hidden="true">HTTP</div>
+        <div class="orbit-badge orbit-two" aria-hidden="true">WSGI</div>
+    </div>
+</section>
+
+<section class="section container" id="features">
+    <div class="section-heading reveal">
+        <p class="eyebrow"><span></span> Built with intention</p>
+        <h2>Small enough to learn.<br>Strong enough to showcase.</h2>
+        <p>Every layer has a clear responsibility, making the codebase straightforward for beginners and credible in a technical review.</p>
+    </div>
+    <div class="feature-grid">
+        <article class="feature-card reveal"><span class="feature-number">01</span><div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 9h8M8 13h5m8-1a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div><h3>Clear Flask routes</h3><p>Dedicated home, about, and JSON health endpoints with an application factory and custom 404 handling.</p></article>
+        <article class="feature-card reveal"><span class="feature-number">02</span><div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 0v18M4 7l8 4 8-4"/></svg></div><h3>Hardened container</h3><p>A slim Python base, pinned dependencies, non-root runtime, health check, and production WSGI server.</p></article>
+        <article class="feature-card reveal"><span class="feature-number">03</span><div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 5v4M9 14h6"/></svg></div><h3>Responsive interface</h3><p>Semantic HTML, keyboard focus, reduced-motion support, mobile navigation, and lightweight progressive enhancement.</p></article>
+    </div>
+</section>
+
+<section class="section architecture-section" id="architecture">
+    <div class="container">
+        <div class="section-heading centered reveal"><p class="eyebrow"><span></span> Request lifecycle</p><h2>One request. Three clear layers.</h2><p>The same image behaves consistently from a developer laptop to a container platform.</p></div>
+        <div class="architecture-flow reveal">
+            <div class="architecture-node"><span>01</span><div class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 19v2m8-2v2M2 21h20"/></svg></div><strong>Browser</strong><small>HTTP request</small></div>
+            <div class="architecture-arrow" aria-hidden="true"><span></span><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></div>
+            <div class="architecture-node featured-node"><span>02</span><div class="node-icon flask-symbol">F</div><strong>Gunicorn + Flask</strong><small>WSGI application</small></div>
+            <div class="architecture-arrow" aria-hidden="true"><span></span><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></div>
+            <div class="architecture-node"><span>03</span><div class="node-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg></div><strong>HTML or JSON</strong><small>HTTP response</small></div>
+        </div>
+    </div>
+</section>
+
+<section class="section container">
+    <div class="cta-panel reveal"><div><p class="eyebrow"><span></span> Ready to inspect</p><h2>See the service report its own status.</h2><p>The health endpoint is suitable for Docker health checks and external monitoring.</p></div><a class="button button-light" href="{{ url_for('health') }}">Open /health <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a></div>
+</section>
+{% endblock %}
